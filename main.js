@@ -21,9 +21,9 @@ function statusChangeCallback(response) {
     console.log(response);
     if (response.status === 'connected') {
         console.log("logged in!")   
-        FB.api('/me', function(response) {
-            console.log(response.name)
-            result += `Usuario: ${response.name}`;
+        FB.api('/me', {fields: 'name'}, function(response) {
+            console.log(response)
+            result += `Usuario: ${response}`;
         });
     } else {
          console.log('please login')
