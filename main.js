@@ -17,16 +17,16 @@ function checkLoginState() {
 }
 
 function statusChangeCallback(response) {
-    result += `Status: ${response.status}`
+    result += `<div> Status: ${response.status} </div>`
     console.log(response);
     if (response.status === 'connected') {
         console.log("logged in!")   
         FB.api('/me', {fields: 'name'}, function(response) {
             console.log(response)
-            result += `Usuario: ${response}`;
+            result += `<div> Usuario: ${response.name} </div>`;
         });
     } else {
-         console.log('please login')
+         console.log('faça o login')
     }
     infos.innerHTML = result
 }
