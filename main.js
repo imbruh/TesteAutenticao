@@ -7,8 +7,9 @@
 //     res.sendFile(__dirname + 'index.html') 
 // )
 
-let result = ''
-const infos = document.querySelector('.info')
+
+const info1 = document.querySelector('.info-status')
+const info2 = document.querySelector('.info-user')
 
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
@@ -17,18 +18,17 @@ function checkLoginState() {
 }
 
 function statusChangeCallback(response) {
-    result += `<div> Status: ${response.status} </div>`
+    info1.innerHTML = `Status: ${response.status}`
     console.log(response);
     if (response.status === 'connected') {
         console.log("logged in!")   
         FB.api('/me', {fields: 'name'}, function(response) {
             console.log(response)
-            result += `<div> Usuario: ${response.name} </div>`;
+            info2.innerHTML = `Usuario: ${response.name}`;
         });
     } else {
-         console.log('faça o login')
+         info2.innerHTML = 'faça o login'
     }
-    infos.innerHTML = result
 }
 
 // app.listen(3000)
