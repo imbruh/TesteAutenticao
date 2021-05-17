@@ -13,7 +13,6 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
         console.log("logged in!")   
         FB.api('/me', {fields: 'name'}, function(response) {
-            console.log(response.name)
             info2.innerHTML = `Usuario: ${response.name}`;
         });
     } else {
