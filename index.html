@@ -4,20 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="master.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v10.0&appId=496875021503343&autoLogAppEvents=1" nonce="3NfUw4J3"></script>
 
-    <fb:login-button 
-    scope="public_profile,email"
-    onlogin="checkLoginState();">
-    </fb:login-button>
+    <div class="container">
+        
+        
+            <h2>Teste de autenticação OAuth2 </h2>
 
-    <div class="info-status" style="margin-top: 10px;"></div>
-    <div class="info-user" style="margin-top: 10px;"></div>
+            <div class="fb-login-button" 
+            scope="public_profile,email"
+            onlogin="checkLoginState();" 
+            data-width="" 
+            data-size="medium" 
+            data-button-type="continue_with" 
+            data-layout="default" 
+            data-auto-logout-link="false" 
+            data-use-continue-as="false">
+            </div>
 
+            <!-- <fb:login-button 
+            scope="public_profile,email"
+            onlogin="checkLoginState();">
+            </fb:login-button> -->
+
+            <div class="info-status" style="margin-top: 10px;"></div>
+            <div class="info-user" style="margin-top: 10px;"></div>
+        
+    </div>
+    
     <script>
         window.fbAsyncInit = function() {
         FB.init({
